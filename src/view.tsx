@@ -4,11 +4,11 @@ import * as ReactDOM from 'react-dom';
 function LoginForm() {
   return (
     <form action="/login" method="POST">
-      <label for="username">Username:</label>
+      <label>Username:</label>
       <input type="text" id="username" name="username" />
-      <label for="password">Password:</label>
+      <label>Password:</label>
       <input type="password" id="password" name="password" />
-      <button type="Login"></button>
+      <button type="submit"></button>
     </form>
   )
 }
