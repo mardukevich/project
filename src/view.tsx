@@ -1,5 +1,5 @@
 import * as React from 'react';
-import * as ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 
 function LoginForm() {
   return (
@@ -12,5 +12,9 @@ function LoginForm() {
     </form>
   )
 }
+const rootElement = document.getElementById('root');
+if (rootElement !== null)
+  console.error('Add element with id root');
 
-ReactDOM.render(<LoginForm />, document.getElementById('root'));
+const root = createRoot(rootElement!);
+root.render(<LoginForm />);
