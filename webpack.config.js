@@ -28,7 +28,7 @@ const serverConfig = {
 
 const clientConfig = {
   mode: 'development',
-  entry: './src/view/scripts/index.tsx',
+  entry: './src/view.tsx',
   target: 'web', 
   devtool: 'source-map',
   output: {
