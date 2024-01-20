@@ -1,7 +1,11 @@
 import * as express from 'express';
+import * as cors from 'cors';
+
 import { Request, Response } from 'express';
- 
+
 const app = express();
+app.use(cors())
+
 const PORT = 3000;
 
 interface User {
@@ -19,7 +23,6 @@ app.use(express.json());
 app.post('/login', (req, res) => {
   const username = req.body.username;
   const password = req.body.password;
-
   // Process the form data (e.g., validate, save to a database, etc.)
 
   // Send a response back to the client
