@@ -40,7 +40,7 @@ const clientConfig = {
   },
   plugins: plugins.concat([
     new HtmlWebpackPlugin({
-      template: "src/view/html/index.html",
+      template: "src/index.html",
     })
   ]),
   module: {
