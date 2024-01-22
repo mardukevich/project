@@ -28,9 +28,7 @@ const serverConfig = {
 
 const clientConfig = {
   mode: 'development',
-  entry: './src/view.tsx',
-  target: 'web', 
-  devtool: 'source-map',
+  entry: '/src/view.tsx',
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist'),
@@ -41,6 +39,7 @@ const clientConfig = {
   plugins: plugins.concat([
     new HtmlWebpackPlugin({
       template: "src/index.html",
+      filename: 'index.html'
     })
   ]),
   module: {
