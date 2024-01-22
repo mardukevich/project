@@ -13,8 +13,8 @@ function LoginForm() {
   )
 }
 const rootElement = document.getElementById('root');
-if (rootElement !== null)
+if (rootElement === null)
   console.error('Add element with id root');
 
-const root = createRoot(rootElement!);
+const root = createRoot(rootElement as Element);
 root.render(<LoginForm />);
