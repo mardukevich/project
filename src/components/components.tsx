@@ -4,6 +4,7 @@ import {  Radio  } from 'antd';
 
 import { useFetchPage } from '../common';
 import { ViewType } from '../types';
+import TableWithPagination from './table';
 
 
 
@@ -37,7 +38,7 @@ export const View: React.FC<ViewProps> = (props) => {
   const [data, error] = useFetchPage(+(searchParams.get('page') ?? 0)) 
 
   return <>
-    {data}
+    <TableWithPagination data={data ?? []} />
   </>
 }
 
