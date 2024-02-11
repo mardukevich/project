@@ -4,6 +4,7 @@ import { View, ViewSwitch } from './components/components';
 import { Flex, Layout, Pagination, Typography } from 'antd';
 import { Content, Header } from 'antd/es/layout/layout';
 import { ViewType } from './types';
+import Sider from 'antd/es/layout/Sider';
 
 const { Title } = Typography;
 
@@ -26,6 +27,7 @@ export function Page() {
           />
         </Content>
       </Layout>
+      <Sider>Right sider</Sider>
     </Layout>
   )
 }

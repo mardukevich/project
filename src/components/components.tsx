@@ -5,7 +5,7 @@ import {  Radio  } from 'antd';
 import { useFetchPage } from '../common';
 import { ViewType } from '../types';
 import TableWithPagination from './table';
-import CardWithPagination from './card';
+import CardsWithPagination from './card';
 
 
 
@@ -52,7 +52,7 @@ export const View: React.FC<ViewProps> = ({ type, onClicked }) => {
   return <>
   {
     type == 'card' 
-    ? <CardWithPagination {...commonProps} /> 
+    ? <CardsWithPagination {...commonProps} /> 
     : <TableWithPagination {...commonProps} />
   }
   </>
