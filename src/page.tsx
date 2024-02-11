@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { ViewSwitch, ViewType } from './components';
 import { Flex, Layout, Pagination, Typography } from 'antd';
-import { Header } from 'antd/es/layout/layout';
+import { Content, Header } from 'antd/es/layout/layout';
 
 const { Title } = Typography;
 
@@ -17,7 +17,9 @@ export function Page() {
           <ViewSwitch onChange={setView} />
         </Flex>
       </Header>
-      <Pagination />
+      <Content>
+        <View type={view} />
+      </Content>
     </Layout>
   )
 }

@@ -24,4 +24,8 @@ export const ViewSwitch: React.FC<{ onChange: (view: ViewType) => void }> = ({ o
     </Radio.Group>
 }
 
+export const View: React.FC<{ type: ViewType }> = ({ type }) => {
+  return <div />
+}
+
 
