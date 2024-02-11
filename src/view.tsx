@@ -8,7 +8,7 @@ function LoginForm() {
       <input type="text" id="username" name="username" />
       <label>Password:</label>
       <input type="password" id="password" name="password" />
-      <button type="submit"></button>
+      <button type="submit">Submit</button>
     </form>
   )
 }
