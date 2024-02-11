@@ -1,20 +1,15 @@
 import * as React from 'react';
 import { createRoot } from 'react-dom/client';
+import { useSearchParams } from 'react-router-dom';
 
-function LoginForm() {
-  return (
-    <form action="/login" method="POST">
-      <label>Username:</label>
-      <input type="text" id="username" name="username" />
-      <label>Password:</label>
-      <input type="password" id="password" name="password" />
-      <button type="submit">Submit</button>
-    </form>
-  )
+function App() {
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  return <div>{searchParams.get('tab')}</div>
 }
 const rootElement = document.getElementById('root');
 if (rootElement === null)
   console.error('Add element with id root');
 
 const root = createRoot(rootElement as Element);
-root.render(<LoginForm />);
+root.render(<App />);
