@@ -6,15 +6,18 @@ import {  Radio  } from 'antd';
 export type ViewType = 'table' | 'card';
 
 export const ViewSwitch: React.FC<{ onChange: (view: ViewType) => void }> = ({ onChange }) => {
-  const [_, setSearchParams] = useSearchParams('table');
+  const [searchParams, setSearchParams] = useSearchParams();
 
   React.useEffect(() => {
-    onChange('table');
+    onChange(searchParams.get('tab') as ViewType ?? 'table');
   }, [])
 
-  return <Radio.Group onChange={(e) => {
+  return <Radio.Group 
+    value={searchParams.get('tab')}
+    onChange={(e) => {
       onChange(e.target.value)
-      setSearchParams(e.target.value)
+      searchParams.set('tab', e.target.value)
+      setSearchParams(searchParams)
     }}>
       <Radio.Button value="table">Таблица</Radio.Button>
       <Radio.Button value="card">Карточка</Radio.Button>
