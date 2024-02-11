@@ -1,8 +1,14 @@
 import * as React from 'react';
-import { useSearchParams } from 'react-router-dom';
+
+import { ViewSwitch, ViewType } from './components';
 
 export function Page() {
-  const [searchParams, setSearchParams] = useSearchParams('table');
+  const [view, setView] = React.useState<ViewType>();
 
-  return <div>{searchParams.get('tab')}</div>
+  return (
+    <>
+      <ViewSwitch onChange={setView} />
+      {view}
+    </>
+  )
 }
