@@ -7,6 +7,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "antd": "^5.14.0",
     "clean-webpack-plugin": "^4.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -22,10 +23,6 @@
     "webpack-cli": "5.1.4"
   },
   "scripts": {
-    "dev": "yarn view:dev && server:run",
-    "server:run": "yarn server:dev && node dist/server.js",
-    "server:dev": "webpack --config webpack.config.js --env side=server",
-    "server:watch": "webpack --watch --config webpack.config.js --env side='server'",
     "view:dev": "webpack --config webpack.config.js --env side=view",
     "view:watch": "webpack --watch --config webpack.config.js --env side=view"
   }

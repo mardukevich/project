@@ -3,28 +3,6 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 const plugins = [new CleanWebpackPlugin()]
-const serverConfig = {
-  mode: 'development',
-  entry: './src/server.ts',
-  target: 'node', 
-  output: {
-    filename: 'server.js',
-    path: path.resolve(__dirname, 'dist'),
-  },
-  resolve: {
-    extensions: ['.ts', '.js'],
-  },
-  plugins: [],
-  module: {
-    rules: [
-      {
-        test: /\.ts$/,
-        use: 'ts-loader',
-        exclude: /node_modules/,
-      },
-    ]
-  }
-};
 
 const clientConfig = {
   mode: 'development',
@@ -54,7 +32,5 @@ const clientConfig = {
 };
 
 module.exports = (env, args) => {
-  if (env.side == 'server')
-    return serverConfig;
   return clientConfig;
 }
