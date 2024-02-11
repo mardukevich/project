@@ -5,10 +5,11 @@ import { UserData, Users } from '../types';
 
 interface WithPaginationProps {
   data: UserData[];
+  onPageChange(page: number): void;
 }
 
 export const withPagination = (WrappedComponent: React.FC<any>) => {
-  const addPagination: React.FC<WithPaginationProps> = ({ data }) => {
+  const addPagination: React.FC<WithPaginationProps> = ({ data, onPageChange }) => {
     const [currentPage, setCurrentPage] = React.useState<number>(1);
 
     const pageSize = data.length;
@@ -17,6 +18,7 @@ export const withPagination = (WrappedComponent: React.FC<any>) => {
     const paginatedData = data.slice(startIndex, endIndex);
 
     const handleChangePage = (page: number) => {
+      onPageChange(page);
       setCurrentPage(page);
     };
 
