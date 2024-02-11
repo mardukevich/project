@@ -1,13 +1,13 @@
 import * as React from 'react';
 
-import { ViewSwitch, ViewType } from './components';
+import { View, ViewSwitch, ViewType } from './components';
 import { Flex, Layout, Pagination, Typography } from 'antd';
 import { Content, Header } from 'antd/es/layout/layout';
 
 const { Title } = Typography;
 
 export function Page() {
-  const [view, setView] = React.useState<ViewType>();
+  const [view, setView] = React.useState<ViewType>('table');
 
   return (
     <Layout>
@@ -18,7 +18,10 @@ export function Page() {
         </Flex>
       </Header>
       <Content>
-        <View type={view} />
+        <View 
+          type={view} 
+          onClicked={() => {}}
+        />
       </Content>
     </Layout>
   )
