@@ -3,9 +3,9 @@ import { useSearchParams } from 'react-router-dom';
 import {  Radio  } from 'antd';
 
 import { useFetchPage } from './common';
+import { ViewType } from './types';
 
 
-export type ViewType = 'table' | 'card';
 
 export const ViewSwitch: React.FC<{ onChange: (view: ViewType) => void }> = ({ onChange }) => {
   const [searchParams, setSearchParams] = useSearchParams({ tab: 'table' });

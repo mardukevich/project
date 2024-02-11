@@ -1,18 +1,5 @@
 import * as React from 'react';
-
-export enum Users {
-  PerPage = 20,
-  MaxCount = 10000
-}
-
-export type UserData = {
-  img: string;
-  name: string;
-  login: string;
-  address: string;
-  email: string;
-  phone: string;
-}
+import { UserData } from './types';
 
 function getAddress(location: any) {
   const number = location['street']['number'];

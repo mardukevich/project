@@ -1,8 +1,9 @@
 import * as React from 'react';
 
-import { View, ViewSwitch, ViewType } from './components';
+import { View, ViewSwitch } from './components';
 import { Flex, Layout, Pagination, Typography } from 'antd';
 import { Content, Header } from 'antd/es/layout/layout';
+import { ViewType } from './types';
 
 const { Title } = Typography;
 

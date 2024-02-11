@@ -6,7 +6,7 @@ const plugins = [new CleanWebpackPlugin()]
 
 const clientConfig = {
   mode: 'development',
-  entry: '/src/view.tsx',
+  entry: '/src/app.tsx',
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist'),
