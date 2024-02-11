@@ -1,16 +1,12 @@
 import * as React from 'react';
 import { createRoot } from 'react-dom/client';
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
 import { Page } from './page';
 
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
-
-let router = createBrowserRouter([
+const router = createBrowserRouter([
   {
     path: "/",
-    loader: () => ({ message: "Hello Data Router!" }),
     Component() {
       return <Page />
     },
