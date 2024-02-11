@@ -30,13 +30,13 @@ const clientConfig = {
     ]
   },
   devServer: {
-    contentBase: path.join(__dirname, 'dist'),
+    static: {
+      directory: path.join(__dirname, 'dist'),
+    },
     compress: true,
     port: 3000, 
     open: true
   },
 };
 
-module.exports = (env, args) => {
-  return clientConfig;
-}
+module.exports = () =>  clientConfig;

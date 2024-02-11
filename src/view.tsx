@@ -1,12 +1,26 @@
 import * as React from 'react';
 import { createRoot } from 'react-dom/client';
-import { useSearchParams } from 'react-router-dom';
+import { Page } from './page';
 
-function App() {
-  const [searchParams, setSearchParams] = useSearchParams();
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
 
-  return <div>{searchParams.get('tab')}</div>
+let router = createBrowserRouter([
+  {
+    path: "/",
+    loader: () => ({ message: "Hello Data Router!" }),
+    Component() {
+      return <Page />
+    },
+  },
+]);
+
+export default function App() {
+  return <RouterProvider router={router} />;
 }
+
 const rootElement = document.getElementById('root');
 if (rootElement === null)
   console.error('Add element with id root');

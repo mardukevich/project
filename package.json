@@ -25,7 +25,6 @@
     "webpack-dev-server": "^4.15.1"
   },
   "scripts": {
-    "view:dev": "webpack --config webpack.config.js --env side=view",
-    "view:watch": "webpack --watch --config webpack.config.js --env side=view"
-  }
+    "start": "webpack serve --config webpack.config.js --mode development"
+  }  
 }
