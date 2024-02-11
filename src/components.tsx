@@ -6,7 +6,7 @@ import {  Radio  } from 'antd';
 export type ViewType = 'table' | 'card';
 
 export const ViewSwitch: React.FC<{ onChange: (view: ViewType) => void }> = ({ onChange }) => {
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams({ tab: 'table' });
 
   React.useEffect(() => {
     onChange(searchParams.get('tab') as ViewType ?? 'table');
