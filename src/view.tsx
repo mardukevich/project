@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import { Page } from './page';
+import { ConfigProvider } from 'antd';
 
 const router = createBrowserRouter([
   {
@@ -14,7 +15,19 @@ const router = createBrowserRouter([
 ]);
 
 export default function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <ConfigProvider
+      theme={{
+        components: {
+          Layout: {
+            headerBg: '#E5E7EB'
+          },
+        },
+      }}
+    >
+      <RouterProvider router={router} />
+    </ConfigProvider>
+  );
 }
 
 const rootElement = document.getElementById('root');
