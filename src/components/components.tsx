@@ -51,7 +51,9 @@ export const View: React.FC<ViewProps> = ({ type, onClicked }) => {
 
   return <>
   {
-    type == 'card' ? <CardWithPagination {...commonProps} /> : <TableWithPagination {...commonProps} />
+    type == 'card' 
+    ? <CardWithPagination {...commonProps} /> 
+    : <TableWithPagination {...commonProps} />
   }
   </>
 }

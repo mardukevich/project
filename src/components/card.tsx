@@ -1,7 +1,29 @@
 import * as React from 'react';
-import { Card as AntdCard, Row, Col } from 'antd';
-import { ComponentsProps } from '../types';
+import { Card as AntdCard, Row, Col, Avatar, Flex } from 'antd';
+import { ComponentsProps, UserData } from '../types';
 import { withPagination } from './pagination';
+import { Typography } from 'antd';
+
+const { Text } = Typography;
+
+type Props = Pick<UserData, 'img' | 'name' | 'login'>;
+
+const CardHeader: React.FC<Props> = ({ img, name, login }) => {
+  return (
+  <div style={{ 
+    display: 'flex', 
+    justifyContent: 'flex-start',
+    borderRadius: '8px',
+    background: '#F3F4F6',
+    padding: '16px'
+  }}>
+    <Avatar src={img} size='large' shape='circle' />
+    <div style={{ display: 'flex', flexDirection: 'column', marginLeft: '8px' }}>
+      <Text>{name}</Text>
+      <Text>{login}</Text>
+    </div>
+  </div>
+  )};
 
 const Card: React.FC<ComponentsProps> = ({ data }) => {
   return (
@@ -9,11 +31,7 @@ const Card: React.FC<ComponentsProps> = ({ data }) => {
       {data.map((item, index) => (
         <Col key={index} xs={24} sm={12} md={8} lg={6}>
           <AntdCard>
-            <img src={item.img} alt="Avatar" style={{ width: '100%', borderRadius: '50%' }} />
-            <Divider />
-            <p><strong>Name:</strong> {item.name}</p>
-            <Divider />
-            <p><strong>Login:</strong> {item.login}</p>
+            <CardHeader img={item.img} name={item.name} login={item.login} />
             <Divider />
             <p><strong>Address:</strong> {item.address}</p>
             <Divider />
