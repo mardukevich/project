@@ -6,6 +6,7 @@ const plugins = [new CleanWebpackPlugin()]
 
 const clientConfig = {
   mode: 'development',
+  devtool: 'source-map',
   entry: '/src/app.tsx',
   output: {
     filename: 'bundle.js',

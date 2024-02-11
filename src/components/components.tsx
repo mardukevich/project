@@ -35,7 +35,7 @@ interface ViewProps {
 export const View: React.FC<ViewProps> = (props) => {
   const [searchParams, setSearchParams] = useSearchParams({ page: '0' });
 
-  const [data, isLoading, error] = useFetchPage(+(searchParams.get('page') ?? 0)) 
+  const [data, error] = useFetchPage(+(searchParams.get('page') ?? 0)) 
 
   const handleChangePage = (page: number) => { 
     searchParams.set('page', page.toString());
@@ -43,7 +43,10 @@ export const View: React.FC<ViewProps> = (props) => {
   }
 
   return <>
-    <TableWithPagination data={data ?? []} onPageChange={handleChangePage} />
+    <TableWithPagination 
+      data={data ?? []} 
+      page={+(searchParams.get('page') ?? 0)}
+      onPageChange={handleChangePage} />
   </>
 }
 

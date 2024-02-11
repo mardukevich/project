@@ -5,17 +5,15 @@ import { UserData, Users } from '../types';
 
 interface WithPaginationProps {
   data: UserData[];
+  page: number;
   onPageChange(page: number): void;
 }
 
 export const withPagination = (WrappedComponent: React.FC<any>) => {
-  const addPagination: React.FC<WithPaginationProps> = ({ data, onPageChange }) => {
-    const [currentPage, setCurrentPage] = React.useState<number>(1);
+  const addPagination: React.FC<WithPaginationProps> = ({ data, page, onPageChange }) => {
+    const [currentPage, setCurrentPage] = React.useState<number>(page);
 
     const pageSize = data.length;
-    const startIndex = (currentPage - 1) * pageSize;
-    const endIndex = startIndex + pageSize;
-    const paginatedData = data.slice(startIndex, endIndex);
 
     const handleChangePage = (page: number) => {
       onPageChange(page);
@@ -24,14 +22,13 @@ export const withPagination = (WrappedComponent: React.FC<any>) => {
 
     return (
       <>
-        <WrappedComponent data={paginatedData} />
+        <WrappedComponent data={data} />
         <Pagination
           showQuickJumper
           current={currentPage}
           pageSize={pageSize}
           total={Users.MaxCount}
           onChange={handleChangePage}
-          style={{ marginTop: '16px' }}
         />
       </>
     );
