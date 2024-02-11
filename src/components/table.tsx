@@ -1,13 +1,9 @@
 import * as React from 'react';
-import { type UserData } from '../types';
+import { ComponentsProps, type UserData } from '../types';
 import { Table as AntdTable} from 'antd';
 import { withPagination } from './pagination';
 
-interface MyTableProps {
-  data?: UserData[];
-}
-
-const Table: React.FC<MyTableProps> = ({ data }) => {
+const Table: React.FC<ComponentsProps> = ({ data }) => {
   const columns = React.useMemo(() => [
     {
       title: '',
@@ -42,7 +38,12 @@ const Table: React.FC<MyTableProps> = ({ data }) => {
     },
   ], []);
 
-  return <AntdTable dataSource={data} columns={columns} pagination={false} size='small'/>;
+  return <AntdTable 
+    dataSource={data} 
+    columns={columns} 
+    pagination={false} 
+    size='small'
+  />;
 };
 
 const TableWithPagination = withPagination(Table);

@@ -12,4 +12,8 @@ export type UserData = {
   phone: string;
 }
 
+export interface ComponentsProps {
+  data: UserData[];
+} 
+
 export type ViewType = 'table' | 'card';

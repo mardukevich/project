@@ -43,6 +43,7 @@ export const View: React.FC<ViewProps> = (props) => {
   }
 
   return <>
+
     <TableWithPagination 
       data={data ?? []} 
       page={+(searchParams.get('page') ?? 0)}

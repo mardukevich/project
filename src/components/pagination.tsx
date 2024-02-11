@@ -1,10 +1,9 @@
 import * as React from 'react';
 
 import { Pagination } from 'antd';
-import { UserData, Users } from '../types';
+import { ComponentsProps, UserData, Users } from '../types';
 
-interface WithPaginationProps {
-  data: UserData[];
+interface WithPaginationProps extends ComponentsProps {
   page: number;
   onPageChange(page: number): void;
 }
