@@ -40,7 +40,7 @@ const Table: React.FC<MyTableProps> = ({ data }) => {
       dataIndex: 'email',
       key: 'email',
     },
-  ].map(item => ({ ...item, style: { fontSize: '12px' }})), []);
+  ], []);
 
   return <AntdTable dataSource={data} columns={columns} pagination={false} size='small'/>;
 };
