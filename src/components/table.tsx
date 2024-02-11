@@ -10,39 +10,39 @@ interface MyTableProps {
 const Table: React.FC<MyTableProps> = ({ data }) => {
   const columns = React.useMemo(() => [
     {
-      title: 'Avatar',
+      title: '',
       dataIndex: 'img',
       key: 'img',
-      render: (img: string) => <img src={img} alt="Avatar" style={{ width: '50px', borderRadius: '50%' }} />,
+      render: (img: string) => <img src={img} alt="Avatar" style={{ width: '50%', borderRadius: '50%' }} />,
     },
     {
-      title: 'Name',
+      title: 'Ф.И.О',
       dataIndex: 'name',
       key: 'name',
     },
     {
-      title: 'Login',
+      title: 'Логин',
       dataIndex: 'login',
       key: 'login',
     },
     {
-      title: 'Address',
+      title: 'Адрес',
       dataIndex: 'address',
       key: 'address',
     },
     {
-      title: 'Email',
-      dataIndex: 'email',
-      key: 'email',
-    },
-    {
-      title: 'Phone',
+      title: 'Телефон',
       dataIndex: 'phone',
       key: 'phone',
     },
-  ], []);
+    {
+      title: 'E-mail',
+      dataIndex: 'email',
+      key: 'email',
+    },
+  ].map(item => ({ ...item, style: { fontSize: '12px' }})), []);
 
-  return <AntdTable dataSource={data} columns={columns} />;
+  return <AntdTable dataSource={data} columns={columns} pagination={false} size='small'/>;
 };
 
 const TableWithPagination = withPagination(Table);
