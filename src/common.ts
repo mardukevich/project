@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { UserData } from './types';
+import { UserData, Users } from './types';
 
 function getAddress(location: any) {
   const number = location['street']['number'];

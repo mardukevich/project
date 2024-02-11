@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { Pagination } from 'antd';
-import { UserData, Users } from './types';
+import { UserData, Users } from '../types';
 
 interface WithPaginationProps {
   data: UserData[];

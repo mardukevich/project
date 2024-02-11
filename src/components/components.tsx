@@ -2,8 +2,8 @@ import * as React from 'react';
 import { useSearchParams } from 'react-router-dom';
 import {  Radio  } from 'antd';
 
-import { useFetchPage } from './common';
-import { ViewType } from './types';
+import { useFetchPage } from '../common';
+import { ViewType } from '../types';
 
 
 
