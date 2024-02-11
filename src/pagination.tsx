@@ -3,15 +3,15 @@ import * as React from 'react';
 import { Pagination } from 'antd';
 import { UserData, Users } from './common';
 
-interface WithPaginationAntdProps {
+interface WithPaginationProps {
   data: UserData[];
-  pageSize: number;
 }
 
-export const withPaginationAntd = (WrappedComponent: React.FC<any>) => {
-  const WithPaginationAntd: React.FC<WithPaginationAntdProps> = ({ data, pageSize }) => {
+export const withPagination = (WrappedComponent: React.FC<any>) => {
+  const addPagination: React.FC<WithPaginationProps> = ({ data }) => {
     const [currentPage, setCurrentPage] = React.useState<number>(1);
 
+    const pageSize = data.length;
     const startIndex = (currentPage - 1) * pageSize;
     const endIndex = startIndex + pageSize;
     const paginatedData = data.slice(startIndex, endIndex);
@@ -21,19 +21,19 @@ export const withPaginationAntd = (WrappedComponent: React.FC<any>) => {
     };
 
     return (
-      <div>
+      <>
         <WrappedComponent data={paginatedData} />
         <Pagination
           showQuickJumper
           current={currentPage}
-          pageSize={Users.PerPage}
+          pageSize={pageSize}
           total={Users.MaxCount}
           onChange={handleChangePage}
           style={{ marginTop: '16px' }}
         />
-      </div>
+      </>
     );
   };
 
-  return WithPaginationAntd;
+  return addPagination;
 };
