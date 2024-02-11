@@ -1,7 +1,8 @@
 import * as React from 'react';
 import { useSearchParams } from 'react-router-dom';
-
 import {  Radio  } from 'antd';
+
+import { useFetchPage } from './common';
 
 
 export type ViewType = 'table' | 'card';

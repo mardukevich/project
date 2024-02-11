@@ -35,7 +35,7 @@ function convertToUserData(data: any[]): UserData[] {
       }))
 }
 
-function useFetchPage(page: number) {
+export function useFetchPage(page: number) {
   const [data, setData] = React.useState<UserData[]>([])
   const [error, setError] = React.useState();
 
