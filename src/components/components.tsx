@@ -5,6 +5,7 @@ import {  Radio  } from 'antd';
 import { useFetchPage } from '../common';
 import { ViewType } from '../types';
 import TableWithPagination from './table';
+import CardWithPagination from './card';
 
 
 
@@ -32,7 +33,7 @@ interface ViewProps {
   onClicked: (item: any) => void;
 }
 
-export const View: React.FC<ViewProps> = (props) => {
+export const View: React.FC<ViewProps> = ({ type, onClicked }) => {
   const [searchParams, setSearchParams] = useSearchParams({ page: '0' });
 
   const [data, error] = useFetchPage(+(searchParams.get('page') ?? 0)) 
@@ -42,12 +43,16 @@ export const View: React.FC<ViewProps> = (props) => {
     setSearchParams(searchParams);
   }
 
-  return <>
+  const commonProps = {
+    data: data ?? [],
+    page: +(searchParams.get('page') ?? 0),
+    onPageChange: handleChangePage
+  }
 
-    <TableWithPagination 
-      data={data ?? []} 
-      page={+(searchParams.get('page') ?? 0)}
-      onPageChange={handleChangePage} />
+  return <>
+  {
+    type == 'card' ? <CardWithPagination {...commonProps} /> : <TableWithPagination {...commonProps} />
+  }
   </>
 }
 
