@@ -3,7 +3,6 @@ import { Card as AntdCard, Row, Col, Avatar } from 'antd';
 import { ComponentsProps, UserData } from '../types';
 import { withPagination } from './pagination';
 import { Typography } from 'antd';
-import Item from 'antd/es/list/Item';
 
 const { Text } = Typography;
 

@@ -1,9 +1,10 @@
 import * as React from 'react';
 import { ComponentsProps, type UserData } from '../types';
-import { Table as AntdTable} from 'antd';
+import { Table as AntdTable, Popover} from 'antd';
 import { withPagination } from './pagination';
 
-const Table: React.FC<ComponentsProps> = ({ data, onClick: onClick_ }) => {
+const Table: React.FC<ComponentsProps> = ({ data }) => {
+
   const columns = React.useMemo(() => [
     {
       title: '',
@@ -38,13 +39,15 @@ const Table: React.FC<ComponentsProps> = ({ data, onClick: onClick_ }) => {
     },
   ], []);
 
-  return <AntdTable 
-    onRow={(record, _) => ({ onClick: () => onClick_(record) })}
-    dataSource={data} 
-    columns={columns} 
-    pagination={false} 
-    size='small'
-  />;
+  return (
+      <AntdTable 
+        dataSource={data} 
+        columns={columns} 
+        pagination={false} 
+        size='small'
+        rowKey={'email'}
+      />
+  );
 };
 
 const TableWithPagination = withPagination(Table);

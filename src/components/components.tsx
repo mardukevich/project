@@ -28,10 +28,9 @@ export const ViewSwitch: React.FC<{ onChange: (view: ViewType) => void }> = ({ o
 
 interface ViewProps {
   type: ViewType;
-  onClick: (item?: UserData) => void;
 }
 
-export const View: React.FC<ViewProps> = ({ type, onClick }) => {
+export const View: React.FC<ViewProps> = ({ type }) => {
   const [searchParams, setSearchParams] = useSearchParams({ page: '0' });
 
   const [data, error] = useFetchPage(+(searchParams.get('page') ?? 0)) 
@@ -45,7 +44,6 @@ export const View: React.FC<ViewProps> = ({ type, onClick }) => {
     data: data ?? [],
     page: +(searchParams.get('page') ?? 0),
     onPageChange: handleChangePage,
-    onClick
   }
 
   return <>

@@ -14,7 +14,6 @@ export type UserData = {
 
 export interface ComponentsProps {
   data: UserData[];
-  onClick: (data?: UserData) => void;
 } 
 
 export type ViewType = 'table' | 'card';

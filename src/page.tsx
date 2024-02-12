@@ -15,25 +15,15 @@ export function Page() {
 
   return (
     <Layout>
-      <Layout>
-        <Header>
-          <Flex justify='space-between' align='center'>
-            <Title level={2} >Список пользователей</Title>
-            <ViewSwitch onChange={setView} />
-          </Flex>
-        </Header>
-        <Content>
-          <View 
-            type={view} 
-            onClick={item => setSiderItem(item)}
-          />
-        </Content>
-      </Layout>
-      {siderItem && view == 'table' &&
-        <Sider>
-          <Card {...siderItem} />
-        </Sider>
-      }
+      <Header>
+        <Flex justify='space-between' align='center'>
+          <Title level={2} >Список пользователей</Title>
+          <ViewSwitch onChange={setView} />
+        </Flex>
+      </Header>
+      <Content>
+        <View type={view} />
+      </Content>
     </Layout>
   )
 }

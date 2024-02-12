@@ -9,7 +9,7 @@ interface WithPaginationProps extends ComponentsProps {
 }
 
 export const withPagination = (WrappedComponent: React.FC<ComponentsProps>) => {
-  const addPagination: React.FC<WithPaginationProps> = ({ data, page, onPageChange, onClick }) => {
+  const addPagination: React.FC<WithPaginationProps> = ({ data, page, onPageChange }) => {
     const [currentPage, setCurrentPage] = React.useState<number>(page);
 
     const pageSize = data.length;
@@ -21,7 +21,7 @@ export const withPagination = (WrappedComponent: React.FC<ComponentsProps>) => {
 
     return (
       <>
-        <WrappedComponent data={data} onClick={onClick} />
+        <WrappedComponent data={data} />
         <Pagination
           showQuickJumper
           current={currentPage}
