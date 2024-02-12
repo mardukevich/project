@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { View, ViewSwitch } from './components/components';
-import { Flex, Layout, Pagination, Typography } from 'antd';
+import { Flex, Layout, Typography } from 'antd';
 import { Content, Header } from 'antd/es/layout/layout';
 import { UserData, ViewType } from './types';
 import Sider from 'antd/es/layout/Sider';
@@ -25,11 +25,11 @@ export function Page() {
         <Content>
           <View 
             type={view} 
-            onClicked={setSiderItem}
+            onClick={item => setSiderItem(item)}
           />
         </Content>
       </Layout>
-      {siderItem &&
+      {siderItem && view == 'table' &&
         <Sider>
           <Card {...siderItem} />
         </Sider>
