@@ -7,6 +7,8 @@ import { ViewType } from '../types';
 import TableWithPagination from './table';
 import { CardsWithPagination } from './card';
 
+export const Divider: React.FC = () => <div style={{ margin: '8px 0', borderBottom: '1px solid #f0f0f0' }} />;
+
 export const ViewSwitch: React.FC<{ onChange: (view: ViewType) => void }> = ({ onChange }) => {
   const [searchParams, setSearchParams] = useSearchParams({ tab: 'table' });
 

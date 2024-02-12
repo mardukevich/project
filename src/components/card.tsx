@@ -1,12 +1,10 @@
 import * as React from 'react';
-import { Card as AntdCard, Row, Col, Avatar } from 'antd';
+import { Card as AntdCard, Row, Col, Avatar, Divider } from 'antd';
 import { ComponentsProps, UserData } from '../types';
 import { withPagination } from './pagination';
 import { Typography } from 'antd';
 
 const { Text } = Typography;
-
-const Divider: React.FC = () => <div style={{ margin: '8px 0', borderBottom: '1px solid #f0f0f0' }} />;
 
 type Props = Pick<UserData, 'img' | 'name' | 'login'>;
 

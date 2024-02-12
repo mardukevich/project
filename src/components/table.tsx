@@ -7,14 +7,15 @@ import { ComponentsProps, UserData } from '../types';
 import { withPagination } from './pagination';
 
 import { Card } from './card';
+import { Divider } from './components';
 
 const { Text } = Typography;
 
 const SideBar: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
     <Layout.Sider
+      width={'30%'}
       style={{
-        minWidth: '420px',
         zIndex: 100,
         height: '100%',
         top: 0, 
@@ -68,10 +69,13 @@ const Table: React.FC<ComponentsProps> = ({ data }) => {
   ], []);
 
   const CardHeader = (
-    <div style={{ display: 'flex', justifyContent: 'space-between'}}>
-      <Text>Карточка пользователя</Text>
-      <Button icon={<CloseOutlined />} onClick={() => setItem(undefined)} />
-    </div>
+    <>
+      <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+        <Text>Карточка пользователя</Text>
+        <Button icon={<CloseOutlined />} type="text" onClick={() => setItem(undefined)} />
+      </div>
+      <Divider />
+    </>
   )
 
   return (
