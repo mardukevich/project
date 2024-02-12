@@ -4,8 +4,6 @@ import { View, ViewSwitch } from './components/components';
 import { Flex, Layout, Typography } from 'antd';
 import { Content, Header } from 'antd/es/layout/layout';
 import { UserData, ViewType } from './types';
-import Sider from 'antd/es/layout/Sider';
-import { Card } from './components/card';
 
 const { Title } = Typography;
 

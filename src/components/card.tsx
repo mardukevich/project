@@ -27,9 +27,14 @@ const CardHeader: React.FC<Props> = ({ img, name, login }) => {
   </div>
   )};
 
-export const Card: React.FC<UserData> = ({ img, name, login, address, email, phone }) => {
+interface CardProps extends UserData {
+  header?: React.ReactNode;
+}
+
+export const Card: React.FC<CardProps> = ({ img, name, login, address, email, phone, header }) => {
   return (
   <AntdCard>
+    {header}
     <CardHeader img={img} name={name} login={login} />
     <Divider />
     <p>Address: {address}</p>
@@ -53,6 +58,4 @@ const Cards: React.FC<ComponentsProps> = ({ data }) => {
   );
 };
 
-const CardsWithPagination = withPagination(Cards)
-
-export default CardsWithPagination;
+export const CardsWithPagination = withPagination(Cards)

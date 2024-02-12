@@ -3,9 +3,9 @@ import { useSearchParams } from 'react-router-dom';
 import {  Radio  } from 'antd';
 
 import { useFetchPage } from '../common';
-import { UserData, ViewType } from '../types';
+import { ViewType } from '../types';
 import TableWithPagination from './table';
-import CardsWithPagination from './card';
+import { CardsWithPagination } from './card';
 
 export const ViewSwitch: React.FC<{ onChange: (view: ViewType) => void }> = ({ onChange }) => {
   const [searchParams, setSearchParams] = useSearchParams({ tab: 'table' });
