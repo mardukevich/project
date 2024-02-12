@@ -5,7 +5,8 @@
     "outDir": "./dist",
     "rootDir": "./src",
     "jsx": "react",
-    "strict": true
+    "strict": true,
+    "baseUrl": "./src"
   },
   "include": ["src/**/*.ts", "src/**/*.tsx"],
   "exclude": ["node_modules"]

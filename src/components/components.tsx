@@ -2,10 +2,11 @@ import * as React from 'react';
 import { useSearchParams } from 'react-router-dom';
 import {  Radio  } from 'antd';
 
-import { useFetchPage } from '../common';
-import { ViewType } from '../types';
-import TableWithPagination from './table';
-import { CardsWithPagination } from './card';
+import { useFetchPage } from 'common';
+import { ViewType } from 'types';
+
+import TableWithPagination from 'components/table';
+import { CardsWithPagination } from 'components/card';
 
 export const Divider: React.FC = () => <div style={{ margin: '8px 0', borderBottom: '1px solid #f0f0f0' }} />;
 

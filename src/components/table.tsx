@@ -3,11 +3,11 @@ import { Typography } from 'antd';
 import { CloseOutlined } from '@ant-design/icons';
 import { Table as AntdTable, Button, Layout } from 'antd';
 
-import { ComponentsProps, UserData } from '../types';
-import { withPagination } from './pagination';
+import { ComponentsProps, UserData } from 'types';
+import { withPagination } from 'components/pagination';
 
-import { Card } from './card';
-import { Divider } from './components';
+import { Card } from 'components/card';
+import { Divider } from 'components/components';
 
 const { Text } = Typography;
 

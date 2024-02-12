@@ -1,8 +1,11 @@
 import * as React from 'react';
-import { Card as AntdCard, Row, Col, Avatar, Divider } from 'antd';
-import { ComponentsProps, UserData } from '../types';
-import { withPagination } from './pagination';
+
+import { Card as AntdCard, Row, Col, Avatar } from 'antd';
 import { Typography } from 'antd';
+
+import { ComponentsProps, UserData } from 'types';
+import { withPagination } from 'components/pagination';
+import { Divider } from 'components/components';
 
 const { Text } = Typography;
 

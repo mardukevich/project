@@ -1,9 +1,10 @@
 import * as React from 'react';
 
-import { View, ViewSwitch } from './components/components';
-import { Flex, Layout, Typography } from 'antd';
 import { Content, Header } from 'antd/es/layout/layout';
-import { UserData, ViewType } from './types';
+import { Flex, Layout, Typography } from 'antd';
+
+import { UserData, ViewType } from 'types';
+import { View, ViewSwitch } from 'components/components';
 
 const { Title } = Typography;
 
