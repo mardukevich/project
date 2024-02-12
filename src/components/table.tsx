@@ -3,7 +3,7 @@ import { ComponentsProps, type UserData } from '../types';
 import { Table as AntdTable} from 'antd';
 import { withPagination } from './pagination';
 
-const Table: React.FC<ComponentsProps> = ({ data }) => {
+const Table: React.FC<ComponentsProps> = ({ data, onClicked }) => {
   const columns = React.useMemo(() => [
     {
       title: '',
@@ -39,6 +39,7 @@ const Table: React.FC<ComponentsProps> = ({ data }) => {
   ], []);
 
   return <AntdTable 
+    onRow={record => ({ onClick: () => onClicked(record) })}
     dataSource={data} 
     columns={columns} 
     pagination={false} 

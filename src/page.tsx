@@ -3,13 +3,15 @@ import * as React from 'react';
 import { View, ViewSwitch } from './components/components';
 import { Flex, Layout, Pagination, Typography } from 'antd';
 import { Content, Header } from 'antd/es/layout/layout';
-import { ViewType } from './types';
+import { UserData, ViewType } from './types';
 import Sider from 'antd/es/layout/Sider';
+import { Card } from './components/card';
 
 const { Title } = Typography;
 
 export function Page() {
   const [view, setView] = React.useState<ViewType>('table');
+  const [siderItem, setSiderItem] = React.useState<UserData>();
 
   return (
     <Layout>
@@ -23,11 +25,15 @@ export function Page() {
         <Content>
           <View 
             type={view} 
-            onClicked={() => {}}
+            onClicked={setSiderItem}
           />
         </Content>
       </Layout>
-      <Sider>Right sider</Sider>
+      {siderItem &&
+        <Sider>
+          <Card {...siderItem} />
+        </Sider>
+      }
     </Layout>
   )
 }

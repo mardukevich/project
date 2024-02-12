@@ -7,6 +7,8 @@ import Item from 'antd/es/list/Item';
 
 const { Text } = Typography;
 
+const Divider: React.FC = () => <div style={{ margin: '8px 0', borderBottom: '1px solid #f0f0f0' }} />;
+
 type Props = Pick<UserData, 'img' | 'name' | 'login'>;
 
 const CardHeader: React.FC<Props> = ({ img, name, login }) => {
@@ -51,8 +53,6 @@ const Cards: React.FC<ComponentsProps> = ({ data }) => {
     </Row>
   );
 };
-
-const Divider: React.FC = () => <div style={{ margin: '8px 0', borderBottom: '1px solid #f0f0f0' }} />;
 
 const CardsWithPagination = withPagination(Cards)
 
