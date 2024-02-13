@@ -3,7 +3,7 @@ import * as React from 'react';
 import { Card as AntdCard, Row, Col, Avatar } from 'antd';
 import { Typography } from 'antd';
 
-import { ComponentsProps, UserData } from 'types';
+import { ComponentsProps, UserData } from 'common/types';
 import { withPagination } from 'components/pagination';
 import { Divider } from 'components/components';
 

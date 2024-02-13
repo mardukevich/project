@@ -3,7 +3,7 @@ import { Typography } from 'antd';
 import { CloseOutlined } from '@ant-design/icons';
 import { Table as AntdTable, Button, Layout } from 'antd';
 
-import { ComponentsProps, UserData } from 'types';
+import { ComponentsProps, UserData } from 'common/types';
 import { withPagination } from 'components/pagination';
 
 import { Card } from 'components/card';
