@@ -28,14 +28,9 @@ const CardHeader: React.FC<Props> = ({ img, name, login }) => {
   </div>
   )};
 
-interface CardProps extends UserData {
-  header?: React.ReactNode;
-}
-
-export const Card: React.FC<CardProps> = ({ img, name, login, address, email, phone, header }) => {
+export const Card: React.FC<UserData> = ({ img, name, login, address, email, phone }) => {
   return (
   <AntdCard>
-    {header}
     <CardHeader img={img} name={name} login={login} />
     <Divider />
     <p>Address: {address}</p>
