@@ -18,7 +18,7 @@ const clientConfig = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "src/index.html",
+      template: "src/templates/index.html",
       filename: 'index.html'
     })
   ],
