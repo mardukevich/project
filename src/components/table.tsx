@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Typography } from 'antd';
+import { Drawer, Typography } from 'antd';
 import { CloseOutlined } from '@ant-design/icons';
 import { Table as AntdTable, Button, Layout } from 'antd';
 
@@ -10,26 +10,6 @@ import { Card } from 'components/card';
 import { Divider } from 'components/components';
 
 const { Text } = Typography;
-
-const SideBar: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  return (
-    <Layout.Sider
-      width={'30%'}
-      style={{
-        zIndex: 100,
-        height: '100%',
-        top: 0, 
-        right: 0, 
-        bottom: 0,
-        left: 'auto', 
-        position: 'fixed'
-      }}
-      theme="light"
-    >
-      {children}
-   </Layout.Sider>
-   );
-};
 
 const Table: React.FC<ComponentsProps> = ({ data }) => {
   const [item, setItem] = React.useState<UserData | undefined>();
@@ -68,16 +48,6 @@ const Table: React.FC<ComponentsProps> = ({ data }) => {
     },
   ], []);
 
-  const CardHeader = (
-    <>
-      <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-        <Text>Карточка пользователя</Text>
-        <Button icon={<CloseOutlined />} type="text" onClick={() => setItem(undefined)} />
-      </div>
-      <Divider />
-    </>
-  )
-
   return (
     <Layout>
       <Layout.Content>
@@ -93,10 +63,12 @@ const Table: React.FC<ComponentsProps> = ({ data }) => {
           rowKey={'email'}
         />
       </Layout.Content>
-      {item &&
-        <SideBar>
-          <Card 
-            header={CardHeader}
+      <Drawer 
+        title='Карточка пользователя'
+        open={item !== undefined} 
+        onClose={() => setItem(undefined)}
+      >
+        {item && <Card 
             name={item.name}
             login={item.login}
             img={item.img}
@@ -104,8 +76,8 @@ const Table: React.FC<ComponentsProps> = ({ data }) => {
             phone={item.phone}
             email={item.email}
           />
-        </SideBar>
-    }
+        }
+      </Drawer>
     </Layout>
   );
 };
