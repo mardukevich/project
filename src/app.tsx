@@ -1,9 +1,7 @@
 import * as React from 'react';
 import { createRoot } from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-
 import { ConfigProvider } from 'antd';
-
 import { Page } from 'page';
 
 const router = createBrowserRouter([

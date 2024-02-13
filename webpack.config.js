@@ -1,8 +1,5 @@
 const path = require('path');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-
-const plugins = [new CleanWebpackPlugin()]
 
 const clientConfig = {
   mode: 'development',
@@ -13,20 +10,23 @@ const clientConfig = {
     path: path.resolve(__dirname, 'dist'),
   },
   resolve: {
+    modules:[
+      path.resolve(__dirname, 'src'),
+      'node_modules',
+    ],
     extensions: ['.ts', '.tsx', '.js'],
   },
-  plugins: plugins.concat([
+  plugins: [
     new HtmlWebpackPlugin({
       template: "src/index.html",
       filename: 'index.html'
     })
-  ]),
+  ],
   module: {
     rules: [
       {
         test: /\.(ts|tsx)$/,
         use: 'ts-loader',
-        exclude: /node_modules/,
       },
     ]
   },
@@ -40,4 +40,4 @@ const clientConfig = {
   },
 };
 
-module.exports = () =>  clientConfig;
+module.exports = clientConfig;

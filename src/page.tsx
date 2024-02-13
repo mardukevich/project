@@ -3,14 +3,13 @@ import * as React from 'react';
 import { Content, Header } from 'antd/es/layout/layout';
 import { Flex, Layout, Typography } from 'antd';
 
-import { UserData, ViewType } from 'types';
+import { ViewType } from 'types';
 import { View, ViewSwitch } from 'components/components';
 
 const { Title } = Typography;
 
 export function Page() {
   const [view, setView] = React.useState<ViewType>('table');
-  const [siderItem, setSiderItem] = React.useState<UserData>();
 
   return (
     <Layout>
