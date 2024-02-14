@@ -1,5 +1,5 @@
 Инструкия по запуску проекта:
 ```
-yarn add
+yarn install
 yarn start
 ```
