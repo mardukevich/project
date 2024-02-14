@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Drawer } from 'antd';
+import { Avatar, Drawer } from 'antd';
 import { Table as AntdTable, Button, Layout } from 'antd';
 
 import { ComponentsProps, UserData } from 'common/types';
@@ -15,7 +15,7 @@ const Table: React.FC<ComponentsProps> = ({ data }) => {
       title: '',
       dataIndex: 'img',
       key: 'img',
-      render: (img: string) => <img src={img} alt="Avatar" style={{ width: '50%', borderRadius: '50%' }} />,
+      render: (img: string) => <Avatar src={img} shape='circle' size={'small'} />,
     },
     {
       title: 'Ф.И.О',

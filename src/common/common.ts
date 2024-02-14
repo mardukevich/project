@@ -14,7 +14,7 @@ function getAddress(location: any) {
 
 function convertToUserData(data: any[]): UserData[] {
     return data.map(item =>  ({
-        img: item['picture']['thumbnail'],
+        img: item['picture']['large'],
         name: item['name']['first'] + ' ' + item['name']['last'],
         login: item['login'][ 'username'],
         address: getAddress(item['location']),

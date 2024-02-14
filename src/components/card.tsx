@@ -7,12 +7,12 @@ import { ComponentsProps, UserData } from 'common/types';
 import { withPagination } from 'components/pagination';
 import { Divider } from 'components/components';
 
-export const Card: React.FC<UserData> = ({ img, name, login, address, email, phone }) => {
-  return (
+
+export const Card: React.FC<UserData> = ({ img, name, login, address, email, phone }) => (
   <AntdCard>
     <Meta
       style={{ padding: '8px', borderRadius: '8px', background: '#f3f4f6' }}
-      avatar={<Avatar src={img} />}
+      avatar={<Avatar shape={'circle'} size='large' src={img} />}
       title={name}
       description={login}
     />
@@ -22,8 +22,7 @@ export const Card: React.FC<UserData> = ({ img, name, login, address, email, pho
     <Divider />
     <p>Phone: {phone}</p>
   </AntdCard>
-  )
-};
+);
 
 const Cards: React.FC<ComponentsProps> = ({ data }) => {
   return (

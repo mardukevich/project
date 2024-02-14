@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { Content, Header } from 'antd/es/layout/layout';
-import { Flex, Layout, Typography } from 'antd';
+import { Layout, Typography } from 'antd';
 
 import { ViewType } from 'common/types';
 import { View, ViewSwitch } from 'components/components';
