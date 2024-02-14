@@ -1,38 +1,21 @@
 import * as React from 'react';
 
 import { Card as AntdCard, Row, Col, Avatar } from 'antd';
-import { Typography } from 'antd';
+import Meta from 'antd/es/card/Meta';
 
 import { ComponentsProps, UserData } from 'common/types';
 import { withPagination } from 'components/pagination';
 import { Divider } from 'components/components';
 
-const { Text } = Typography;
-
-type Props = Pick<UserData, 'img' | 'name' | 'login'>;
-
-const CardHeader: React.FC<Props> = ({ img, name, login }) => {
-  return (
-  <div style={{ 
-    display: 'flex', 
-    justifyContent: 'flex-start',
-    borderRadius: '8px',
-    background: '#F3F4F6',
-    padding: '16px'
-  }}>
-    <Avatar src={img} size='large' shape='circle' />
-    <div style={{ display: 'flex', flexDirection: 'column', marginLeft: '8px' }}>
-      <Text style={{ color: 'blue' }}>{name}</Text>
-      <Text>{login}</Text>
-    </div>
-  </div>
-  )};
-
 export const Card: React.FC<UserData> = ({ img, name, login, address, email, phone }) => {
   return (
   <AntdCard>
-    <CardHeader img={img} name={name} login={login} />
-    <Divider />
+    <Meta
+      style={{ padding: '8px', borderRadius: '8px', background: '#f3f4f6' }}
+      avatar={<Avatar src={img} />}
+      title={name}
+      description={login}
+    />
     <p>Address: {address}</p>
     <Divider />
     <p>Email: {email}</p>

@@ -1,15 +1,11 @@
 import * as React from 'react';
-import { Drawer, Typography } from 'antd';
-import { CloseOutlined } from '@ant-design/icons';
+import { Drawer } from 'antd';
 import { Table as AntdTable, Button, Layout } from 'antd';
 
 import { ComponentsProps, UserData } from 'common/types';
 import { withPagination } from 'components/pagination';
 
 import { Card } from 'components/card';
-import { Divider } from 'components/components';
-
-const { Text } = Typography;
 
 const Table: React.FC<ComponentsProps> = ({ data }) => {
   const [item, setItem] = React.useState<UserData | undefined>();
