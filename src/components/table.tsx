@@ -1,9 +1,10 @@
 import * as React from 'react';
 
-import { Avatar, Drawer, List } from 'antd';
+import { Avatar, Button, Drawer, List, Space } from 'antd';
 import { Table as AntdTable, Typography } from 'antd';
 import Column from 'antd/es/table/Column';
 import Meta from 'antd/es/card/Meta';
+import { CloseOutlined } from '@ant-design/icons';
 
 import { ComponentsProps, ListItemType, UserData } from 'common/types';
 import { withPagination } from 'components/pagination';
@@ -19,7 +20,16 @@ const Sidebar: React.FC<{ onClose: () => void, item?: UserData }> = ({ onClose, 
     { title: 'Почта', description: email }
   ]
   return (
-  <Drawer open title='Карточка пользователя' onClose={onClose}>
+  <Drawer 
+    open 
+    title='Карточка пользователя' 
+    closeIcon={null}
+    extra={
+      <Space>
+        <Button type='text' onClick={onClose}><CloseOutlined /></Button>
+      </Space>
+  }
+  >
     <Meta
       style={{ 
         padding: '8px',
