@@ -7,6 +7,23 @@ import { withPagination } from 'components/pagination';
 
 import { Card } from 'components/card';
 
+const Sidebar: React.FC<{ onClose: () => void, item?: UserData }> = ({ onClose, item }) => {
+  if (item == undefined)
+    return null;
+  return (
+  <Drawer open title='Карточка пользователя' onClose={onClose}>
+    <Card 
+      name={item.name}
+      login={item.login}
+      img={item.img}
+      address={item.address}
+      phone={item.phone}
+      email={item.email}
+    />
+  </Drawer>
+  )
+};
+
 const Table: React.FC<ComponentsProps> = ({ data }) => {
   const [item, setItem] = React.useState<UserData | undefined>();
 
@@ -45,33 +62,17 @@ const Table: React.FC<ComponentsProps> = ({ data }) => {
   ], []);
 
   return (
-    <Layout>
-      <Layout.Content>
-        <AntdTable 
-          onRow={(record) => ({ onClick: () => setItem(record)})}
-          dataSource={data} 
-          columns={columns} 
-          pagination={false} 
-          size='small'
-          rowKey={'email'}
-        />
-      </Layout.Content>
-      <Drawer 
-        title='Карточка пользователя'
-        open={item !== undefined} 
-        onClose={() => setItem(undefined)}
-      >
-        {item && <Card 
-            name={item.name}
-            login={item.login}
-            img={item.img}
-            address={item.address}
-            phone={item.phone}
-            email={item.email}
-          />
-        }
-      </Drawer>
-    </Layout>
+    <>
+    <AntdTable 
+      onRow={(record) => ({ onClick: () => setItem(record)})}
+      dataSource={data} 
+      columns={columns} 
+      pagination={false} 
+      size='small'
+      rowKey={'email'}
+    />
+    <Sidebar item={item} onClose={() => setItem(undefined)}/>
+    </>
   );
 };
 
