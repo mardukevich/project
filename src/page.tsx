@@ -13,11 +13,15 @@ export function Page() {
 
   return (
     <Layout>
-      <Header>
-        <Flex justify='space-between' align='center'>
-          <Title level={2} >Список пользователей</Title>
-          <ViewSwitch onChange={setView} />
-        </Flex>
+      <Header
+        style={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center'
+        }}
+      >
+        <Title level={4} >Список пользователей</Title>
+        <ViewSwitch onChange={setView} />
       </Header>
       <Content>
         <View type={view} />
