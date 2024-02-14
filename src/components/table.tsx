@@ -60,7 +60,7 @@ const Table: React.FC<ComponentsProps> = ({ data }) => {
         title="Ф.И.О" 
         dataIndex="name" 
         key="name" 
-        render={(v, record: UserData) => (
+        render={(_, record: UserData) => (
           <>
             <Avatar src={record.img} shape='circle' size={'default'} />
             <Typography.Text style={{ paddingLeft: '8px' }}>{record.name}</Typography.Text>

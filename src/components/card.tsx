@@ -22,6 +22,7 @@ export const Card: React.FC<UserData> = ({ img, name, login, address, email, pho
       description={login}
     />
     <List 
+      style={{ fontSize: '14px' }}
       itemLayout="horizontal"
       dataSource={data}
       renderItem={(item) => (

@@ -25,6 +25,7 @@ export const withPagination = (WrappedComponent: React.FC<ComponentsProps>) => {
           showQuickJumper
           current={currentPage}
           pageSize={pageSize}
+          showSizeChanger={false}
           total={Users.MaxCount}
           onChange={handleChangePage}
         />
