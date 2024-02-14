@@ -16,10 +16,10 @@ export const Card: React.FC<UserData> = ({ img, name, login, address, email, pho
   return (
   <AntdCard>
     <Meta
-      style={{ padding: '8px', borderRadius: '8px', background: '#f3f4f6' }}
+      style={{ padding: '8px', borderRadius: '8px', background: '#f3f4f6', display: 'flex', alignItems: 'center' }}
       avatar={<Avatar shape={'circle'} size='large' src={img} />}
-      title={name}
-      description={login}
+      title={<Typography.Text style={{ color: '#2563eb' }} >{name}</Typography.Text>}
+      description={<Typography.Text>{login}</Typography.Text>}
     />
     <List
       style={{ fontSize: '14px' }}
