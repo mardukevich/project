@@ -1,25 +1,44 @@
 import * as React from 'react';
 
-import { Avatar, Drawer } from 'antd';
+import { Avatar, Drawer, List } from 'antd';
 import { Table as AntdTable, Typography } from 'antd';
 import Column from 'antd/es/table/Column';
 
-import { ComponentsProps, UserData } from 'common/types';
+import { ComponentsProps, ListItemType, UserData } from 'common/types';
 import { withPagination } from 'components/pagination';
 import { Card } from 'components/card';
+import Meta from 'antd/es/card/Meta';
 
 const Sidebar: React.FC<{ onClose: () => void, item?: UserData }> = ({ onClose, item }) => {
   if (item == undefined)
     return null;
+  const { login, address, email, phone, img, name } = item;
+  const data: ListItemType[] = [
+    { title: 'Логин', description: login },
+    { title: 'Адрес', description: address },
+    { title: 'Телефон', description: phone },
+    { title: 'Почта', description: email }
+  ]
   return (
   <Drawer open title='Карточка пользователя' onClose={onClose}>
-    <Card 
-      name={item.name}
-      login={item.login}
-      img={item.img}
-      address={item.address}
-      phone={item.phone}
-      email={item.email}
+    <Meta
+      style={{ 
+        padding: '8px',
+        borderRadius: '8px', 
+        background: '#f3f4f6', 
+        display: 'flex', 
+        alignItems: 'center' 
+      }}
+      avatar={<Avatar style={{ marginRight: '8px' }} shape={'circle'} size='large' src={img} />}
+      title={name}
+    />
+    <List 
+      itemLayout="horizontal"
+      dataSource={data}
+      renderItem={item => (
+        <List.Item>
+          <List.Item.Meta title={item.title} description={item.description} />
+        </List.Item>)}
     />
   </Drawer>
   )

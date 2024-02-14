@@ -3,6 +3,11 @@ export enum Users {
   MaxCount = 10000
 }
 
+export type ListItemType = {
+  title: string;
+  description: string;
+}
+
 export type UserData = {
   img: string;
   name: string;

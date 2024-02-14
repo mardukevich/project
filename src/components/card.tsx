@@ -1,14 +1,19 @@
 import * as React from 'react';
 
-import { Card as AntdCard, Row, Col, Avatar } from 'antd';
+import { Card as AntdCard, Row, Col, Avatar, Descriptions, List } from 'antd';
 import Meta from 'antd/es/card/Meta';
 
-import { ComponentsProps, UserData } from 'common/types';
+import { ComponentsProps, ListItemType, UserData } from 'common/types';
 import { withPagination } from 'components/pagination';
-import { Divider } from 'components/components';
 
 
-export const Card: React.FC<UserData> = ({ img, name, login, address, email, phone }) => (
+export const Card: React.FC<UserData> = ({ img, name, login, address, email, phone }) => {
+  const data: ListItemType[] = [
+    { title: 'Адрес:', description: address },
+    { title: 'Телефон:', description: phone },
+    { title: 'E-mail:', description: email }
+  ]
+  return (
   <AntdCard>
     <Meta
       style={{ padding: '8px', borderRadius: '8px', background: '#f3f4f6' }}
@@ -16,13 +21,17 @@ export const Card: React.FC<UserData> = ({ img, name, login, address, email, pho
       title={name}
       description={login}
     />
-    <p>Address: {address}</p>
-    <Divider />
-    <p>Email: {email}</p>
-    <Divider />
-    <p>Phone: {phone}</p>
+    <List 
+      itemLayout="horizontal"
+      dataSource={data}
+      renderItem={(item) => (
+        <List.Item>
+          <List.Item.Meta title={item.title} description={item.description} />
+        </List.Item>)}
+    />
   </AntdCard>
-);
+  )
+};
 
 const Cards: React.FC<ComponentsProps> = ({ data }) => {
   return (
