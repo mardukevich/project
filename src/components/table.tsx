@@ -48,10 +48,7 @@ const Table: React.FC<ComponentsProps> = ({ data }) => {
     <Layout>
       <Layout.Content>
         <AntdTable 
-          onRow={(record) => {
-            return {
-              onClick: () => setItem(record), // click row
-            }}}
+          onRow={(record) => ({ onClick: () => setItem(record)})}
           dataSource={data} 
           columns={columns} 
           pagination={false} 
