@@ -20,7 +20,7 @@ export function Page() {
           alignItems: 'center'
         }}
       >
-        <Title level={4} >Список пользователей</Title>
+        <Title style={{ margin: 0 }} level={4} >Список пользователей</Title>
         <ViewSwitch onChange={setView} />
       </Header>
       <Content>

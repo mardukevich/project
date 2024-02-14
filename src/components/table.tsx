@@ -6,7 +6,6 @@ import Column from 'antd/es/table/Column';
 
 import { ComponentsProps, ListItemType, UserData } from 'common/types';
 import { withPagination } from 'components/pagination';
-import { Card } from 'components/card';
 import Meta from 'antd/es/card/Meta';
 
 const Sidebar: React.FC<{ onClose: () => void, item?: UserData }> = ({ onClose, item }) => {

@@ -1,12 +1,13 @@
 import * as React from 'react';
 import { useSearchParams } from 'react-router-dom';
-import {  Radio  } from 'antd';
+import {  Radio, Typography  } from 'antd';
 
 import { useFetchPage } from 'common/common';
 import { ViewType } from 'common/types';
 
 import TableWithPagination from 'components/table';
 import { CardsWithPagination } from 'components/card';
+
 
 export const Divider: React.FC = () => <div style={{ margin: '8px 0', borderBottom: '1px solid #f0f0f0' }} />;
 
@@ -50,10 +51,13 @@ export const View: React.FC<ViewProps> = ({ type }) => {
   }
 
   return <>
-  {
-    type == 'card' 
-    ? <CardsWithPagination {...commonProps} /> 
-    : <TableWithPagination {...commonProps} />
+  { error ?
+    <Typography.Text type='danger'>
+      { `Что-то пошло не так. Ошибка: ${error.toString()}`}
+    </Typography.Text>
+    : type == 'card' 
+      ? <CardsWithPagination {...commonProps} /> 
+      : <TableWithPagination {...commonProps} />
   }
   </>
 }
