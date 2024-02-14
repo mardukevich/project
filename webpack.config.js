@@ -1,7 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
-const clientConfig = {
+module.exports  = {
   mode: 'development',
   devtool: 'source-map',
   entry: '/src/app.tsx',
@@ -39,5 +39,3 @@ const clientConfig = {
     open: true
   },
 };
-
-module.exports = clientConfig;
