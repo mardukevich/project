@@ -35,9 +35,12 @@ const Sidebar: React.FC<{ onClose: () => void, item?: UserData }> = ({ onClose, 
       itemLayout="horizontal"
       dataSource={data}
       renderItem={item => (
-        <List.Item>
-          <List.Item.Meta title={item.title} description={item.description} />
-        </List.Item>)}
+        <List.Item.Meta 
+          style={{ padding: '8px' }}
+          title={<Typography.Text style={{ padding: '8px 0' }} type='secondary'>{item.title}</Typography.Text>} 
+          description={<Typography.Text>{item.description}</Typography.Text>} 
+        />)
+    }
     />
   </Drawer>
   )

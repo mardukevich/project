@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { Card as AntdCard, Row, Col, Avatar, Descriptions, List } from 'antd';
+import { Card as AntdCard, Row, Col, Avatar, Typography, List } from 'antd';
 import Meta from 'antd/es/card/Meta';
 
 import { ComponentsProps, ListItemType, UserData } from 'common/types';
@@ -21,13 +21,16 @@ export const Card: React.FC<UserData> = ({ img, name, login, address, email, pho
       title={name}
       description={login}
     />
-    <List 
+    <List
       style={{ fontSize: '14px' }}
       itemLayout="horizontal"
       dataSource={data}
       renderItem={(item) => (
         <List.Item>
-          <List.Item.Meta title={item.title} description={item.description} />
+          <List.Item.Meta 
+            title={<Typography.Text type='secondary'>{item.title}</Typography.Text>} 
+            description={<Typography.Text>{item.description}</Typography.Text>} 
+          />
         </List.Item>)}
     />
   </AntdCard>
