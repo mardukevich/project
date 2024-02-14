@@ -3,10 +3,10 @@ import * as React from 'react';
 import { Avatar, Drawer, List } from 'antd';
 import { Table as AntdTable, Typography } from 'antd';
 import Column from 'antd/es/table/Column';
+import Meta from 'antd/es/card/Meta';
 
 import { ComponentsProps, ListItemType, UserData } from 'common/types';
 import { withPagination } from 'components/pagination';
-import Meta from 'antd/es/card/Meta';
 
 const Sidebar: React.FC<{ onClose: () => void, item?: UserData }> = ({ onClose, item }) => {
   if (item == undefined)
