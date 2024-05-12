@@ -21,4 +21,27 @@ export interface ComponentsProps {
   data: UserData[];
 } 
 
+export interface UserAPI {
+  picture: { large: string };
+  name: { first: string; last: string };
+  login: { username: string };
+  location: {
+    street: { number: number; name: string };
+    city: string;
+    state: string;
+    country: string;
+    postCode: string;
+  };
+  email: string;
+  phone: string;
+}
+
+export interface Location {
+  street: { number: number; name: string };
+  city: string;
+  state: string;
+  country: string;
+  postCode: string;
+}
+
 export type ViewType = 'table' | 'card';

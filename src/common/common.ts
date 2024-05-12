@@ -1,36 +1,14 @@
 import * as React from 'react';
 
-import { UserData, Users } from 'common/types';
-
-interface UserInfo {
-  picture: { large: string };
-  name: { first: string; last: string };
-  login: { username: string };
-  location: {
-    street: { number: number; name: string };
-    city: string;
-    state: string;
-    country: string;
-    postCode: string;
-  };
-  email: string;
-  phone: string;
-}
-
-interface Location {
-  street: { number: number; name: string };
-  city: string;
-  state: string;
-  country: string;
-  postCode: string;
-}
+import type { UserData, Location, UserAPI } from 'common/types';
+import { Users } from 'common/types';
 
 function getAddress(location: Location): string {
   const { street, city, state, country, postCode } = location;
   return `${street.name} ${street.number}, ${city}, ${state}, ${country}, ${postCode}`;
 }
 
-function convertToUserData(data: UserInfo[]): UserData[] {
+function convertToUserData(data: UserAPI[]): UserData[] {
   return data.map(item => ({
     img: item.picture.large,
     name: `${item.name.first} ${item.name.last}`,
