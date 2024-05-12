@@ -1,29 +1,26 @@
 import * as React from 'react';
-import { Pagination } from 'antd';
+import { Pagination as ANTDPagination } from 'antd';
 import { ComponentsProps, Users } from 'common/types';
 
 interface WithPaginationProps extends ComponentsProps {
   page: number;
   onPageChange(page: number): void;
+  pageSize?: number;
 }
 
 export const withPagination = (WrappedComponent: React.FC<ComponentsProps>) => {
-  const addPagination: React.FC<WithPaginationProps> = ({ data, page, onPageChange }) => {
-    const [currentPage, setCurrentPage] = React.useState<number>(page);
+  const Pagination: React.FC<WithPaginationProps> = ({ data, page, onPageChange, pageSize = 20 }) => {
 
-    const pageSize = data.length;
-
-    const handleChangePage = (page: number) => {
-      onPageChange(page);
-      setCurrentPage(page);
+    const handleChangePage = (newPage: number) => {
+      onPageChange(newPage);
     };
 
     return (
       <>
         <WrappedComponent data={data} />
-        <Pagination
+        <ANTDPagination
           showQuickJumper
-          current={currentPage}
+          current={page} 
           pageSize={pageSize}
           showSizeChanger={false}
           total={Users.MaxCount}
@@ -33,5 +30,5 @@ export const withPagination = (WrappedComponent: React.FC<ComponentsProps>) => {
     );
   };
 
-  return addPagination;
-};
+  return React.memo(Pagination);  
+}
