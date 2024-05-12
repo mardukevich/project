@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Pagination as ANTDPagination } from 'antd';
-import { ComponentsProps, Users } from 'common/types';
+import { type ComponentsProps, Users } from 'common/types';
 
 interface WithPaginationProps extends ComponentsProps {
   page: number;
