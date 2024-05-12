@@ -41,18 +41,22 @@ function convertToUserData(data: UserInfo[]): UserData[] {
   }));
 }
 
-export function useFetchPage(page: number) {
-  const [data, setData] = React.useState<UserData[]>([])
-  const [error, setError] = React.useState();
+export function useFetchPage(page: number): [UserData[], Error | null] {
+  const [data, setData] = React.useState<UserData[]>([]);
+  const [error, setError] = React.useState<Error | null>(null);
 
   React.useEffect(() => {
-    const url = `https://randomuser.me/api/?page=${page}&results=${Users.PerPage}&seed=abc` +
-    '&inc=picture,name,login,location,phone,email'
+    const url = `https://randomuser.me/api/?page=${page}&results=${Users.PerPage}&seed=abc&inc=picture,name,login,location,email,phone`;
     fetch(url)
-      .then(response => response.json())
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
+      })
       .then(data => setData(convertToUserData(data.results)))
-      .catch(setError)
-  }, [page])
+      .catch(error => setError(new Error(error.message)));
+  }, [page]);
 
   return [data, error];
 }
