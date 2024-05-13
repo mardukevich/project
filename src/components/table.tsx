@@ -10,15 +10,18 @@ import { ComponentsProps, ListItemType, UserData } from 'common/types';
 import { withPagination } from 'components/pagination';
 
 const Sidebar: React.FC<{ onClose: () => void, item?: UserData }> = ({ onClose, item }) => {
-  if (item == undefined)
+  if (!item)
     return null;
-  const { login, address, email, phone, img, name } = item;
-  const data: ListItemType[] = [
+
+  const { login, address, phone, email, img, name } = item;
+
+  const data = React.useMemo(() => [
     { title: 'Логин', description: login },
     { title: 'Адрес', description: address },
     { title: 'Телефон', description: phone },
     { title: 'Почта', description: email }
-  ]
+  ], []);
+
   return (
   <Drawer 
     open 
